@@ -7,16 +7,16 @@ on:
       - 'Dockerfile'
       - 'index.js'
       - 'package.json'
-  pull_request:
-    branches: [ main ]
+      - '.github/workflows/build-docker-image.yml'
   workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
 
     steps:
       - name: Checkout repository
